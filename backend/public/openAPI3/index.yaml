@@ -1,0 +1,1644 @@
+openapi: 3.0.0
+info:
+  title: Appointment Booking
+  contact: {}
+  version: "1.0"
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: false
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: false
+    AndroidUseAppManifest: false
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: true
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    AndroidHttpClient: ANDROID_OK
+    ObjCHttpClient: UNIREST
+    CSharpHttpClient: UNIREST
+    PHPHttpClient: UNIREST
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+      - Ssl3
+      - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: true
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+    UsageExampleEndpoint:
+      Description: ""
+      EndpointGroupName: ""
+      EndpointName: ""
+    IsLatestVersion: false
+    EnableImmutableModels: false
+    GenerateEnums: true
+    BackoffFactor: 0
+    UserConfigurableRetries: true
+    UseEndpointMethodName: false
+  x-server-configuration:
+    default-environment: production
+    default-server: Server 1
+    environments:
+      - name: production
+        servers:
+          - name: Server 1
+            url: http://localhost:3000
+    parameters: []
+  x-image-uri: ""
+servers:
+  - url: http://localhost:3000
+    variables: {}
+paths:
+  /services/{serviceId}:
+    get:
+      tags:
+        - serviceId
+      summary: Get service by Id
+      operationId: GetservicebyId
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    put:
+      tags:
+        - serviceId
+      summary: Update service
+      operationId: Updateservice
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateserviceRequest"
+            example:
+              state:
+                value: active
+              _id: 5e8c1dd492888f326cd91f85
+              name: fp
+              duration:
+                value: 1
+                _id: 5e8c1dd492888f326cd91f86
+                unit: day
+              price:
+                amount: 100
+                currency: INR
+                _id: 5e8c1dd492888f326cd91f87
+              __v: 0
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    delete:
+      tags:
+        - serviceId
+      summary: Delete Service
+      operationId: DeleteService
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+  /services:
+    post:
+      tags:
+        - Services
+      summary: Create Service
+      operationId: CreateService
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateServiceRequest"
+            example:
+              services:
+                - name: 4p
+                  duration:
+                    value: 123
+                    unit: day
+                  price:
+                    currency: INR
+                    amount: 123
+                - name: 5p
+                  duration:
+                    value: 123
+                    unit: day
+                  price:
+                    currency: INR
+                    amount: 123
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /services
+            headers:
+              Content-Type: application/json
+            body: >-
+              {
+
+                "services": [
+
+                  {
+
+                    "name": "4p",
+
+                    "duration": {
+
+                      "value": 123,
+
+                      "unit": "day"
+
+                    },
+
+                    "price": {
+
+                      "currency": "INR",
+
+                      "amount": 123
+
+                    }
+
+                  },
+
+                  {
+
+                    "name": "5p",
+
+                    "duration": {
+
+                      "value": 123,
+
+                      "unit": "day"
+
+                    },
+
+                    "price": {
+
+                      "currency": "INR",
+
+                      "amount": 123
+
+                    }
+
+                  }
+
+                ]
+
+              }
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Create Service
+    get:
+      tags:
+        - Services
+      summary: Get all services
+      operationId: Getallservices
+      parameters: []
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /services
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Get all services
+  /users/{userId}:
+    get:
+      tags:
+        - userId
+      summary: Get employee By Id
+      operationId: GetemployeeById
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    put:
+      tags:
+        - userId
+      summary: Update employee details
+      operationId: Updateemployeedetails
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateemployeedetailsRequest"
+            example:
+              name:
+                first: tomey
+                middle: ""
+                last: smith
+              role: leve1
+              email: test@gmail.com
+              DOB: 01/01/1993
+              address:
+                - type: current
+                  line1: "# of some street"
+                  landmark: to make ur address find easy
+                  city: city
+                  state: state
+                  country: country
+                  zip: 560000
+              phone:
+                - dialCode: +91
+                  number: 9876543210
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    delete:
+      tags:
+        - userId
+      summary: Delete Employee
+      operationId: DeleteEmployee
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+  /users:
+    post:
+      tags:
+        - users
+      summary: Add Users to the System
+      operationId: AddUserstotheSystem
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddUserstotheSystemRequest"
+            example:
+              name:
+                first: tomey
+                middle: ""
+                last: smith
+              role: customer
+              email: test@gmail.com
+              DOB: 01/01/1993
+              address:
+                - type: current
+                  line1: "# of some street"
+                  landmark: to make ur address find easy
+                  city: city
+                  state: state
+                  country: country
+                  zip: 560000
+              phone:
+                - dialCode: +91
+                  number: 9876543210
+              password: Pass@123
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /users
+            headers:
+              Content-Type: application/json
+            body: >-
+              {
+
+                "name": {
+
+                  "first": "tomey",
+
+                  "middle": "",
+
+                  "last": "smith"
+
+                },
+
+                "role": "customer",
+
+                "email": "test@gmail.com",
+
+                "DOB": "01/01/1993",
+
+                "address": [
+
+                  {
+
+                    "type": "current",
+
+                    "line1": "# of some street",
+
+                    "landmark": "to make ur address find easy",
+
+                    "city": "city",
+
+                    "state": "state",
+
+                    "country": "country",
+
+                    "zip": "560000"
+
+                  }
+
+                ],
+
+                "phone": [
+
+                  {
+
+                    "dialCode": "+91",
+
+                    "number": "9876543210"
+
+                  }
+
+                ],
+
+                "password": "Pass@123"
+
+              }
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Add Users to the System
+  /:
+    get:
+      tags:
+        - users
+      summary: Get all employes
+      operationId: Getallemployes
+      parameters: []
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Get all employes
+  /appointments/{appointmentId}/appointedServices/{appointedserviceId}:
+    delete:
+      tags:
+        - Appointed Service Id
+      summary: Delete Appointed Service
+      operationId: DeleteAppointedService
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+        - name: appointedserviceId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+  /appointments/{appointmentId}/appointedServices:
+    post:
+      tags:
+        - Appointed Services
+      summary: Add provided services
+      operationId: Addprovidedservices
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AddprovidedservicesRequest"
+            example:
+              appointedServices:
+                - serviceId: 5e8c1f2192888f326cd91f8b
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    get:
+      tags:
+        - Appointed Services
+      summary: Get appointed services
+      operationId: Getappointedservices
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+  /appointments/{appointmentId}:
+    put:
+      tags:
+        - AppointmentId
+      summary: update Appointment
+      operationId: updateAppointment
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/updateAppointmentRequest"
+            example:
+              createdBy: 5e8c1dd492888f326cd91f85
+              servicesFor: 5e8c1dd492888f326cd91f86
+              appointedTo: 5e8c1dd492888f326cd91f87
+              startDate: 2020-10-15T13:00:00Z
+              priceExpected:
+                currency: INR
+                amount: 100
+              priceFull:
+                currency: INR
+                amount: 100
+              discount:
+                currency: INR
+                amount: 10
+              priceFinal:
+                currency: INR
+                amount: 100
+              state:
+                value: pending
+                reason: new appointment created
+              appointedServices:
+                - serviceId: 5e8c1dd492888f326cd91f85
+                  state: booked
+                - serviceId: 5e8c1dd492888f326cd91f85
+                  state: booked
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    get:
+      tags:
+        - AppointmentId
+      summary: Get Appointment By Id
+      operationId: GetAppointmentById
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+    delete:
+      tags:
+        - AppointmentId
+      summary: Deleta a  Appointment
+      operationId: DeletaaAppointment
+      parameters:
+        - name: appointmentId
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests: []
+  /appointments:
+    post:
+      tags:
+        - appointments
+      summary: Create Appointment
+      operationId: CreateAppointment
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAppointmentRequest"
+            example:
+              createdBy: 5e8c1dd492888f326cd91f85
+              servicesFor: 5e8c1dd492888f326cd91f86
+              appointedTo: 5e8c1dd492888f326cd91f87
+              startDate: 2020-10-15T13:00:00Z
+              endDate: ""
+              priceExpected:
+                currency: INR
+                amount: 100
+              priceFull:
+                currency: INR
+                amount: 100
+              discount:
+                currency: INR
+                amount: 10
+              priceFinal:
+                currency: INR
+                amount: 100
+              state:
+                value: pending
+                reason: new appointment created
+              appointedServices:
+                - serviceId: 5e8c1dd492888f326cd91f85
+                  state: booked
+                - serviceId: 5e8c1dd492888f326cd91f85
+                  state: booked
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /appointments
+            headers:
+              Content-Type: application/json
+            body: >-
+              {
+
+                "createdBy": "5e8c1dd492888f326cd91f85",
+
+                "servicesFor": "5e8c1dd492888f326cd91f86",
+
+                "appointedTo": "5e8c1dd492888f326cd91f87",
+
+                "startDate": "2020-10-15T13:00:00Z",
+
+                "endDate": "",
+
+                "priceExpected": {
+
+                  "currency": "INR",
+
+                  "amount": 100
+
+                },
+
+                "priceFull": {
+
+                  "currency": "INR",
+
+                  "amount": 100
+
+                },
+
+                "discount": {
+
+                  "currency": "INR",
+
+                  "amount": 10
+
+                },
+
+                "priceFinal": {
+
+                  "currency": "INR",
+
+                  "amount": 100
+
+                },
+
+                "state": {
+
+                  "value": "pending",
+
+                  "reason": "new appointment created"
+
+                },
+
+                "appointedServices": [
+
+                  {
+
+                    "serviceId": "5e8c1dd492888f326cd91f85",
+
+                    "state": "booked"
+
+                  },
+
+                  {
+
+                    "serviceId": "5e8c1dd492888f326cd91f85",
+
+                    "state": "booked"
+
+                  }
+
+                ]
+
+              }
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Create Appointment
+    get:
+      tags:
+        - appointments
+      summary: Get all appointments
+      operationId: Getallappointments
+      parameters: []
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /appointments
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Get all appointments
+  /schedule:
+    get:
+      tags:
+        - schedules
+      summary: Get all schedules of employee if free or booked
+      operationId: Getallschedulesofemployeeiffreeorbooked
+      parameters:
+        - name: desiredTime
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: isodatestring
+        - name: type
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: free
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: GET
+            uri: /schedule?desiredTime=isodatestring&type=free
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Get all schedules of employee if free or booked
+  /login:
+    post:
+      tags:
+        - Login
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+            example:
+              loginType: password
+              userReference: test@gmail.com
+              password: Pass@123
+              otp: 98503
+        required: true
+        x-send-file-in-body: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+      deprecated: false
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+      x-unitTests:
+        - request:
+            method: POST
+            uri: /login
+            headers:
+              Content-Type: application/json
+            body: >-
+              {
+
+                "loginType": "password",
+
+                "userReference": "test@gmail.com",
+
+                "password": "Pass@123",
+
+                "otp": 98503
+
+              }
+          expectedResponse:
+            x-allowExtraHeaders: true
+            x-bodyMatchMode: NONE
+            x-arrayOrderedMatching: false
+            x-arrayCheckCount: false
+            x-matchResponseSchema: true
+            statusCode: 200
+            headers: {}
+          x-testShouldPass: true
+          x-testEnabled: true
+          x-testName: Login
+components:
+  schemas:
+    UpdateserviceRequest:
+      title: UpdateserviceRequest
+      required:
+        - state
+        - _id
+        - name
+        - duration
+        - price
+        - __v
+      type: object
+      properties:
+        state:
+          $ref: "#/components/schemas/State"
+        _id:
+          type: string
+        name:
+          type: string
+        duration:
+          $ref: "#/components/schemas/Duration"
+        price:
+          $ref: "#/components/schemas/Price"
+        __v:
+          type: integer
+          format: int32
+      example:
+        state:
+          value: active
+        _id: 5e8c1dd492888f326cd91f85
+        name: fp
+        duration:
+          value: 1
+          _id: 5e8c1dd492888f326cd91f86
+          unit: day
+        price:
+          amount: 100
+          currency: INR
+          _id: 5e8c1dd492888f326cd91f87
+        __v: 0
+    State:
+      title: State
+      required:
+        - value
+      type: object
+      properties:
+        value:
+          type: string
+      example:
+        value: active
+    Duration:
+      title: Duration
+      required:
+        - value
+        - _id
+        - unit
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int32
+        _id:
+          type: string
+        unit:
+          type: string
+      example:
+        value: 1
+        _id: 5e8c1dd492888f326cd91f86
+        unit: day
+    Price:
+      title: Price
+      required:
+        - amount
+        - currency
+        - _id
+      type: object
+      properties:
+        amount:
+          type: integer
+          format: int32
+        currency:
+          type: string
+        _id:
+          type: string
+      example:
+        amount: 100
+        currency: INR
+        _id: 5e8c1dd492888f326cd91f87
+    CreateServiceRequest:
+      title: CreateServiceRequest
+      required:
+        - services
+      type: object
+      properties:
+        services:
+          type: array
+          items:
+            $ref: "#/components/schemas/Service"
+      example:
+        services:
+          - name: 4p
+            duration:
+              value: 123
+              unit: day
+            price:
+              currency: INR
+              amount: 123
+          - name: 5p
+            duration:
+              value: 123
+              unit: day
+            price:
+              currency: INR
+              amount: 123
+    Service:
+      title: Service
+      required:
+        - name
+        - duration
+        - price
+      type: object
+      properties:
+        name:
+          type: string
+        duration:
+          $ref: "#/components/schemas/Duration1"
+        price:
+          $ref: "#/components/schemas/Price1"
+      example:
+        name: 4p
+        duration:
+          value: 123
+          unit: day
+        price:
+          currency: INR
+          amount: 123
+    Duration1:
+      title: Duration1
+      required:
+        - value
+        - unit
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int32
+        unit:
+          type: string
+      example:
+        value: 123
+        unit: day
+    Price1:
+      title: Price1
+      required:
+        - currency
+        - amount
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: integer
+          format: int32
+      example:
+        currency: INR
+        amount: 123
+    UpdateemployeedetailsRequest:
+      title: UpdateemployeedetailsRequest
+      required:
+        - name
+        - role
+        - email
+        - DOB
+        - address
+        - phone
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/Name"
+        role:
+          type: string
+        email:
+          type: string
+        DOB:
+          type: string
+        address:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+        phone:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+      example:
+        name:
+          first: tomey
+          middle: ""
+          last: smith
+        role: leve1
+        email: test@gmail.com
+        DOB: 01/01/1993
+        address:
+          - type: current
+            line1: "# of some street"
+            landmark: to make ur address find easy
+            city: city
+            state: state
+            country: country
+            zip: 560000
+        phone:
+          - dialCode: +91
+            number: 9876543210
+    Name:
+      title: Name
+      required:
+        - first
+        - middle
+        - last
+      type: object
+      properties:
+        first:
+          type: string
+        middle:
+          type: string
+        last:
+          type: string
+      example:
+        first: tomey
+        middle: ""
+        last: smith
+    Address:
+      title: Address
+      required:
+        - type
+        - line1
+        - landmark
+        - city
+        - state
+        - country
+        - zip
+      type: object
+      properties:
+        type:
+          type: string
+        line1:
+          type: string
+        landmark:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zip:
+          type: string
+      example:
+        type: current
+        line1: "# of some street"
+        landmark: to make ur address find easy
+        city: city
+        state: state
+        country: country
+        zip: 560000
+    Phone:
+      title: Phone
+      required:
+        - dialCode
+        - number
+      type: object
+      properties:
+        dialCode:
+          type: string
+        number:
+          type: string
+      example:
+        dialCode: +91
+        number: 9876543210
+    AddUserstotheSystemRequest:
+      title: AddUserstotheSystemRequest
+      required:
+        - name
+        - role
+        - email
+        - DOB
+        - address
+        - phone
+        - password
+      type: object
+      properties:
+        name:
+          $ref: "#/components/schemas/Name"
+        role:
+          type: string
+        email:
+          type: string
+        DOB:
+          type: string
+        address:
+          type: array
+          items:
+            $ref: "#/components/schemas/Address"
+        phone:
+          type: array
+          items:
+            $ref: "#/components/schemas/Phone"
+        password:
+          type: string
+      example:
+        name:
+          first: tomey
+          middle: ""
+          last: smith
+        role: customer
+        email: test@gmail.com
+        DOB: 01/01/1993
+        address:
+          - type: current
+            line1: "# of some street"
+            landmark: to make ur address find easy
+            city: city
+            state: state
+            country: country
+            zip: 560000
+        phone:
+          - dialCode: +91
+            number: 9876543210
+        password: Pass@123
+    AddprovidedservicesRequest:
+      title: AddprovidedservicesRequest
+      required:
+        - appointedServices
+      type: object
+      properties:
+        appointedServices:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppointedService"
+      example:
+        appointedServices:
+          - serviceId: 5e8c1f2192888f326cd91f8b
+    AppointedService:
+      title: AppointedService
+      required:
+        - serviceId
+      type: object
+      properties:
+        serviceId:
+          type: string
+      example:
+        serviceId: 5e8c1f2192888f326cd91f8b
+    updateAppointmentRequest:
+      title: updateAppointmentRequest
+      required:
+        - createdBy
+        - servicesFor
+        - appointedTo
+        - startDate
+        - priceExpected
+        - priceFull
+        - discount
+        - priceFinal
+        - state
+        - appointedServices
+      type: object
+      properties:
+        createdBy:
+          type: string
+        servicesFor:
+          type: string
+        appointedTo:
+          type: string
+        startDate:
+          type: string
+        priceExpected:
+          $ref: "#/components/schemas/PriceExpected"
+        priceFull:
+          $ref: "#/components/schemas/PriceFull"
+        discount:
+          $ref: "#/components/schemas/Discount"
+        priceFinal:
+          $ref: "#/components/schemas/PriceFinal"
+        state:
+          $ref: "#/components/schemas/State1"
+        appointedServices:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppointedService1"
+      example:
+        createdBy: 5e8c1dd492888f326cd91f85
+        servicesFor: 5e8c1dd492888f326cd91f86
+        appointedTo: 5e8c1dd492888f326cd91f87
+        startDate: 2020-10-15T13:00:00Z
+        priceExpected:
+          currency: INR
+          amount: 100
+        priceFull:
+          currency: INR
+          amount: 100
+        discount:
+          currency: INR
+          amount: 10
+        priceFinal:
+          currency: INR
+          amount: 100
+        state:
+          value: pending
+          reason: new appointment created
+        appointedServices:
+          - serviceId: 5e8c1dd492888f326cd91f85
+            state: booked
+          - serviceId: 5e8c1dd492888f326cd91f85
+            state: booked
+    PriceExpected:
+      title: PriceExpected
+      required:
+        - currency
+        - amount
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: integer
+          format: int32
+      example:
+        currency: INR
+        amount: 100
+    PriceFull:
+      title: PriceFull
+      required:
+        - currency
+        - amount
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: integer
+          format: int32
+      example:
+        currency: INR
+        amount: 100
+    Discount:
+      title: Discount
+      required:
+        - currency
+        - amount
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: integer
+          format: int32
+      example:
+        currency: INR
+        amount: 10
+    PriceFinal:
+      title: PriceFinal
+      required:
+        - currency
+        - amount
+      type: object
+      properties:
+        currency:
+          type: string
+        amount:
+          type: integer
+          format: int32
+      example:
+        currency: INR
+        amount: 100
+    State1:
+      title: State1
+      required:
+        - value
+        - reason
+      type: object
+      properties:
+        value:
+          type: string
+        reason:
+          type: string
+      example:
+        value: pending
+        reason: new appointment created
+    AppointedService1:
+      title: AppointedService1
+      required:
+        - serviceId
+        - state
+      type: object
+      properties:
+        serviceId:
+          type: string
+        state:
+          type: string
+      example:
+        serviceId: 5e8c1dd492888f326cd91f85
+        state: booked
+    CreateAppointmentRequest:
+      title: CreateAppointmentRequest
+      required:
+        - createdBy
+        - servicesFor
+        - appointedTo
+        - startDate
+        - endDate
+        - priceExpected
+        - priceFull
+        - discount
+        - priceFinal
+        - state
+        - appointedServices
+      type: object
+      properties:
+        createdBy:
+          type: string
+        servicesFor:
+          type: string
+        appointedTo:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        priceExpected:
+          $ref: "#/components/schemas/PriceExpected"
+        priceFull:
+          $ref: "#/components/schemas/PriceFull"
+        discount:
+          $ref: "#/components/schemas/Discount"
+        priceFinal:
+          $ref: "#/components/schemas/PriceFinal"
+        state:
+          $ref: "#/components/schemas/State1"
+        appointedServices:
+          type: array
+          items:
+            $ref: "#/components/schemas/AppointedService1"
+      example:
+        createdBy: 5e8c1dd492888f326cd91f85
+        servicesFor: 5e8c1dd492888f326cd91f86
+        appointedTo: 5e8c1dd492888f326cd91f87
+        startDate: 2020-10-15T13:00:00Z
+        endDate: ""
+        priceExpected:
+          currency: INR
+          amount: 100
+        priceFull:
+          currency: INR
+          amount: 100
+        discount:
+          currency: INR
+          amount: 10
+        priceFinal:
+          currency: INR
+          amount: 100
+        state:
+          value: pending
+          reason: new appointment created
+        appointedServices:
+          - serviceId: 5e8c1dd492888f326cd91f85
+            state: booked
+          - serviceId: 5e8c1dd492888f326cd91f85
+            state: booked
+    LoginRequest:
+      title: LoginRequest
+      required:
+        - loginType
+        - userReference
+        - password
+        - otp
+      type: object
+      properties:
+        loginType:
+          type: string
+        userReference:
+          type: string
+        password:
+          type: string
+        otp:
+          type: integer
+          format: int32
+      example:
+        loginType: password
+        userReference: test@gmail.com
+        password: Pass@123
+        otp: 98503
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+  - httpBearer: []
+tags:
+  - name: serviceId
+  - name: Services
+  - name: userId
+  - name: users
+  - name: Appointed Service Id
+  - name: Appointed Services
+  - name: AppointmentId
+  - name: appointments
+  - name: schedules
+  - name: Login

@@ -1,0 +1,10 @@
+.Scheduler {
+  &:before {
+    content:  url('../../../assets/image/calendar.svg');
+    position: relative;
+    top: 1px;
+    width:10px;
+  }
+  text-indent: 17px;
+  margin-bottom: 0.75rem;
+}
